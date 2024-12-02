@@ -55,3 +55,25 @@ exports.addUser = (req, res) => {
     })
 
 }
+
+exports.getdeletebyUser = (req, res) => {
+
+    const userId = req.params.id
+    User.getUserById(userId,(user) => {
+
+        res.render('dell', {user})
+
+    })
+
+}
+
+exports.deleteUser = (req, res) => {
+
+    const userId = req.params.id
+    User.deleteUser(userId, () => {
+
+        res.redirect('/')
+
+    })
+
+}

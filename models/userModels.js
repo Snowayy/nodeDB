@@ -48,6 +48,19 @@ const User = {
         })
     }
 
+    deleteUser: (id, callback) => {
+
+       const sql = 'DELETE FROM users WHERE id = ?' 
+       
+        db.query(sql, [id], (err, result) => {
+
+            if (err) throw err
+            callback(result)
+
+        })
+
+    }
+
 }
 
 module.exports = User;

@@ -8,11 +8,12 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', userController.getAllUsers)
-
 app.get('/edit/:id', userController.getUserById)
 app.post('/edit/:id', userController.updateUser)
 app.get('/add', (req, res) => res.render('add'))
 app.post('/add', userController.addUser)
+app.get('/dell/:id', userController.getdeleteByUser)
+app.post('/dell/:id', userController.deleteUser)
 
 app.listen(2000, () => {
 
